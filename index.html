@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!-- Define que es un documento HTML5 -->
+<html lang="es">
+<!-- Idioma español para mejor SEO -->
+
+<head>
+    <!-- Metadatos para el navegador -->
+    <meta charset="UTF-8">
+    <!-- Codificación de caracteres para aceptar ñ y acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la web sea responsive en móviles -->
+    <title>Darwin - Desarrollador Backend</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+    
+    <!-- Metadatos para SEO -->
+    <meta name="description" content="Desarrollador Backend especializado en Java, Python, APIs REST y bases de datos">
+    <meta name="keywords" content="backend, developer, Java, Python, Spring Boot, Django, API REST, SQL, NoSQL">
+    <meta name="author" content="Darwin Estiben">
+    
+    <!-- Favicon (icono en la pestaña del navegador) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+    
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Mis archivos CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- Cabecera fija en la parte superior -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- Mi logo con nombre -->
+                <div class="logo">Darwin Estiben</div>
+                
+                <!-- Botón para cambiar entre modo claro/oscuro -->
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <!-- Menú de navegación -->
+                <ul class="nav-menu">
+                    <li><a href="#about">Sobre Mí</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección principal hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hola, soy <br>Darwin Estiben</h1>
+                <div class="hero-subtitle">Desarrollador Backend & Arquitecto de Software</div>
+                <p class="hero-description">
+                    Especializado en crear sistemas escalables, APIs robustas y soluciones backend eficientes. 
+                    Apasionado por la arquitectura de software y las mejores prácticas de desarrollo.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contact" class="btn btn-outline">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección sobre mí -->
+    <section id="about" class="section">
+        <div class="container">
+            
+            <div class="about-content">
+                <div>
+                    <p class="about-text">
+                        <h2 class="section-title">Sobre Mí</h2>
+                        Soy desarrollador de software con un año de experiencia, apasionado por la innovación tecnológica y el aprendizaje continuo.
+                        Me caracterizo por ser una persona proactiva, creativa y sociable, con facilidad para trabajar en equipo, aportar ideas y adaptarme a distintos entornos.
+                        Me motiva experimentar con nuevas tecnologías y enfrentarme a retos que impulsen mi crecimiento profesional.
+                        <br>Cuento con disponibilidad para viajar y me desenvuelvo con naturalidad en entornos colaborativos, donde el intercambio de ideas y conocimientos
+                        enriquece los proyectos.
+                    </p>
+                    <p class="about-text">
+                        <h2 class="section-title">Experiencia en Indra</h2>
+
+                        Realicé mis prácticas en Indra, una de las principales multinacionales de consultoría y tecnología en España y Latinoamérica,
+                        participando en proyectos dentro del área de movilidad y transporte.
+                        Durante este período, colaboré en tareas de desarrollo de software, implementación de funcionalidades y apoyo en la integración de soluciones
+                        tecnológicas orientadas a la mejora de la gestión y optimización de sistemas de movilidad. 
+                        Esta experiencia me permitió conocer de cerca el trabajo en entornos ágiles y adquirir una visión práctica sobre cómo la tecnología 
+                        impulsa la transformación digital en sectores clave.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-item">Java</span>
+                        <span class="tech-item">AWS</span>
+                        <span class="tech-item">Spring Boot</span>
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">PostgreSQL</span>
+                        <span class="tech-item">MySQL</span>
+                        <span class="tech-item">Docker</span>
+                        <span class="tech-item">Kubernetes</span>
+                        <span class="tech-item">n8n</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- Mi foto de perfil -->
+                    <img src="images/fotoCarnet.jpg" alt="Darwin Estiben - Desarrollador Backend" class="profile-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de habilidades técnicas -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <!-- Cada categoría de habilidades -->
+                <div class="skill-category">
+                    <h3>Lenguajes de Programación</h3>
+                    <ul class="skill-list">
+                        <li>Java <div class="skill-level"><div class="skill-level-fill" style="width: 95%;"></div></div></li>
+                        <li>Python <div class="skill-level"><div class="skill-level-fill" style="width: 90%;"></div></div></li>
+                        <li>JavaScript/Node.js <div class="skill-level"><div class="skill-level-fill" style="width: 85%;"></div></div></li>
+                        <li>SQL <div class="skill-level"><div class="skill-level-fill" style="width: 88%;"></div></div></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Frameworks & Herramientas</h3>
+                    <ul class="skill-list">
+                        <li>Spring Boot <div class="skill-level"><div class="skill-level-fill" style="width: 92%;"></div></div></li>
+                        <li>Express.js <div class="skill-level"><div class="skill-level-fill" style="width: 80%;"></div></div></li>
+                        <li>Hibernate <div class="skill-level"><div class="skill-level-fill" style="width: 87%;"></div></div></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Bases de Datos</h3>
+                    <ul class="skill-list">
+                        <li>PostgreSQL <div class="skill-level"><div class="skill-level-fill" style="width: 90%;"></div></div></li>
+                        <li>MySQL <div class="skill-level"><div class="skill-level-fill" style="width: 88%;"></div></div></li>
+                        <li>MongoDB <div class="skill-level"><div class="skill-level-fill" style="width: 85%;"></div></div></li>
+                        <li>Redis <div class="skill-level"><div class="skill-level-fill" style="width: 82%;"></div></div></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>DevOps & Cloud</h3>
+                    <ul class="skill-list">
+                        <li>Docker <div class="skill-level"><div class="skill-level-fill" style="width: 88%;"></div></div></li>
+                        <li>Kubernetes <div class="skill-level"><div class="skill-level-fill" style="width: 80%;"></div></div></li>
+                        <li>AWS <div class="skill-level"><div class="skill-level-fill" style="width: 85%;"></div></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de proyectos (se carga dinámicamente desde GitHub) -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="projects-grid" id="projects-container">
+                <!-- Aquí se cargarán automáticamente mis proyectos de GitHub -->
+                <div class="loading">Cargando proyectos desde GitHub...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <!-- Información de contacto -->
+                    <div class="contact-item">
+                        <i class="fas fa-envelope fa-2x"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>martincamachodarwin@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone fa-2x"></i>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>+34 613913519</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                        <div>
+                            <h3>Ubicación</h3>
+                            <p>Madrid, España</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock fa-2x"></i>
+                        <div>
+                            <h3>Disponibilidad</h3>
+                            <p>Disponible para proyectos freelance y oportunidades</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de contacto -->
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="container">
+            <div class="logo">Darwin Estiben</div>
+            <p>Desarrollador Backend especializado en crear soluciones técnicas robustas y escalables</p>
+            
+            <!-- Enlaces a redes sociales -->
+            <div class="social-links">
+                <a href="https://github.com/martincamachodarwin-creator" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/darwin-mart%C3%ADn-camacho-a3b333364/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+            
+            <p>&copy; 2024 Darwin Estiben. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript personalizado -->
+    <script src="js/script.js"></script>
+</body>
+</html>
