@@ -1,5 +1,16 @@
-// Agrega al inicio del archivo para verificar EmailJS
+// verificar EmailJS
 console.log('EmailJS cargado:', typeof emailjs !== 'undefined');
+
+function setupContactForm() {
+    // Prevenir duplicados
+    if (window.contactFormInitialized) {
+        console.log('⚠️ Formulario ya inicializado, evitando duplicado');
+        return;
+    }
+    window.contactFormInitialized = true;
+    
+    const form = document.getElementById('contactForm');
+}
 
 // Verifica que el formulario existe
 document.addEventListener('DOMContentLoaded', function() {
