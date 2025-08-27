@@ -1,3 +1,18 @@
+// Agrega al inicio del archivo para verificar EmailJS
+console.log('EmailJS cargado:', typeof emailjs !== 'undefined');
+
+// Verifica que el formulario existe
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    console.log('Formulario encontrado:', !!form);
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Formulario enviado - prevenido recarga');
+        });
+    }
+});
 // Configuración de GitHub
 const GITHUB_USERNAME = 'martincamachodarwin-creator';
 const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`;
@@ -92,19 +107,67 @@ function setupSmoothScroll() {
 // Form submission
 function setupContactForm() {
     const form = document.getElementById('contactForm');
+    
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simular envío (reemplazar con tu servicio de email)
-            const formData = new FormData(form);
-            console.log('Form data:', Object.fromEntries(formData));
+             // Obtener el botón de submit dentro del formulario
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+           // Mostrar estado de carga
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.classList.add('btn-loading');
+            submitBtn.disabled = true;
+
+             // Verificar que EmailJS esté cargado
+            if (typeof emailjs === 'undefined') {
+                alert('Error: EmailJS no está cargado correctamente');
+                submitBtn.textContent = originalText;
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.disabled = false;
+                return;
+            }
             
-            alert('¡Gracias por tu mensaje! Te responderé pronto.');
-            form.reset();
+            // Enviar email con EmailJS
+            emailjs.send('service_sa64f2f', 'template_esq952r', {
+                from_name: form.name.value,
+                from_email: form.email.value,
+                subject: form.subject.value,
+                message: form.message.value,
+                to_email: 'martincamachodarwin@gmail.com',
+                date: new Date().toLocaleString('es-ES')
+            })
+            .then(function(response) {
+                console.log('Email enviado con éxito!', response.status, response.text);
+                
+                // Mostrar mensaje de éxito
+                alert('✅ ¡Mensaje enviado! Te responderé en breve.');
+                
+                // Limpiar formulario
+                form.reset();
+            })
+            .catch(function(error) {
+                console.error('Error al enviar email:', error);
+                
+                // Mostrar mensaje de error
+                alert('❌ Error al enviar el mensaje. Por favor, intenta nuevamente.');
+            })
+            .finally(function() {
+                // Restaurar botón
+                submitBtn.textContent = originalText;
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.disabled = false;
+            });
         });
     }
 }
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    setupContactForm();
+});
 
 // Animaciones al hacer scroll
 function setupAnimations() {

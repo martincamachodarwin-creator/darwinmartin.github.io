@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Hace que la web sea responsive en móviles -->
     <title>Darwin - Desarrollador Backend</title>
-    <!-- Título que aparece en la pestaña del navegador -->
     
     <!-- Metadatos para SEO -->
     <meta name="description" content="Desarrollador Backend especializado en Java, Python, APIs REST y bases de datos">
@@ -29,6 +28,7 @@
     <!-- Mis archivos CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    
 </head>
 
 <body>
@@ -232,7 +232,7 @@
                         <label for="message">Mensaje</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Enviar Mensaje</button>
                 </form>
             </div>
         </div>
@@ -256,5 +256,13 @@
 
     <!-- JavaScript personalizado -->
     <script src="js/script.js"></script>
+    <!-- Agrega EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <script>
+        // Inicializa EmailJS con TU Public Key
+        (function() {
+            emailjs.init("IiF8_ovQ8uIXLJ1T3"); // Reemplaza con tu key
+        })();
+    </script>
 </body>
 </html>
