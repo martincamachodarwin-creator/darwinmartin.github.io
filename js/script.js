@@ -111,53 +111,65 @@ function setupContactForm() {
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log('📨 Formulario enviado - Iniciando proceso...');
             
-             // Obtener el botón de submit dentro del formulario
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-
-           // Mostrar estado de carga
+            
+            // Estado de carga
             submitBtn.textContent = 'Enviando...';
-            submitBtn.classList.add('btn-loading');
             submitBtn.disabled = true;
-
-             // Verificar que EmailJS esté cargado
+            
+            // Verificar que EmailJS está cargado
             if (typeof emailjs === 'undefined') {
-                alert('Error: EmailJS no está cargado correctamente');
+                console.error('❌ EmailJS no está cargado');
+                alert('Error: EmailJS no está cargado. Recarga la página.');
                 submitBtn.textContent = originalText;
-                submitBtn.classList.remove('btn-loading');
                 submitBtn.disabled = false;
                 return;
             }
             
-            // Enviar email con EmailJS
-            emailjs.send('service_sa64f2f', 'template_esq952r', {
+            // Verificar que emailjs.send existe
+            if (typeof emailjs.send !== 'function') {
+                console.error('❌ emailjs.send no es una función');
+                alert('Error: EmailJS no funciona correctamente.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                return;
+            }
+            
+            // Mostrar datos que se enviarán
+            const formData = {
                 from_name: form.name.value,
                 from_email: form.email.value,
                 subject: form.subject.value,
                 message: form.message.value,
                 to_email: 'martincamachodarwin@gmail.com',
                 date: new Date().toLocaleString('es-ES')
-            })
+            };
+            
+            console.log('📤 Datos a enviar:', formData);
+            
+            // Enviar email - SIN .then() en init
+            emailjs.send('service_sa64f2f', 'template_esq952r', formData)
             .then(function(response) {
-                console.log('Email enviado con éxito!', response.status, response.text);
-                
-                // Mostrar mensaje de éxito
+                console.log('✅ Email enviado con éxito!', response);
                 alert('✅ ¡Mensaje enviado! Te responderé en breve.');
-                
-                // Limpiar formulario
                 form.reset();
             })
             .catch(function(error) {
-                console.error('Error al enviar email:', error);
+                console.error('❌ Error al enviar email:', error);
+                console.log('Código de error:', error.status);
+                console.log('Texto de error:', error.text);
                 
-                // Mostrar mensaje de error
-                alert('❌ Error al enviar el mensaje. Por favor, intenta nuevamente.');
+                if (error.status === 400) {
+                    alert('❌ Error en la configuración. Verifica los IDs de EmailJS.');
+                } else {
+                    alert('❌ Error al enviar el mensaje. Por favor, intenta nuevamente.');
+                }
             })
             .finally(function() {
-                // Restaurar botón
                 submitBtn.textContent = originalText;
-                submitBtn.classList.remove('btn-loading');
                 submitBtn.disabled = false;
             });
         });

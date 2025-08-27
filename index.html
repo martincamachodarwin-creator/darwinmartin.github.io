@@ -259,10 +259,15 @@
     <!-- Agrega EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
     <script>
-        // Inicializa EmailJS con TU Public Key
-        (function() {
-            emailjs.init("IiF8_ovQ8uIXLJ1T3"); // Reemplaza con tu key
-        })();
-    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Verifica que emailjs existe antes de inicializar
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init("IiF8_ovQ8uIXLJ1T3");
+            console.log('✅ EmailJS inicializado');
+        } else {
+            console.error('❌ EmailJS no está cargado');
+        }
+    });
+</script>
 </body>
 </html>
